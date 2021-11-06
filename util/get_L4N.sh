@@ -4,27 +4,28 @@
 
 #####
 # 準備のために使ったコマンド
-# split -n 16 -d L4N-2004-abis-20211029.ova L4N-2004-abis-split-
+# openssl md5 L4N-2004-abis-20211106.ova > L4N-2004-abis-20211106.ova.md5
+# split -n 16 -d L4N-2004-abis-20211106.ova L4N-2004-abis-split-
 # for f in L4N-2004-abis-split-*; do openssl md5 $f > ${f}.md5; done
 # sftp user@ftpsite
-# cd psy-neuroimaging/L4N-2004-abis-20211029-split
+# cd psy-neuroimaging
+# mkdir L4N-2004-abis-20211106-split
 # put L4N-2004-abis-split-*
-# openssl md5 L4N-2004-abis-20201029.ova > L4N-2004-abis-20211029.ova.md5
 # cd ../L4N #(psy-neuroimaging/L4N)
-# put L4N-2004-abis-20211029*
+# put L4N-2004-abis-20211106*
 #####
 
 #set -x
 
-#cd ~/Downloads
-mkdir L4N-2004-abis-20211029
-cd L4N-2004-abis-20211029
+cd ~/Downloads
+mkdir L4N-2004-abis-20211106
+cd L4N-2004-abis-20211106
 
 # variable ################
-baseurl="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N-2004-abis-20211029-split"
+baseurl="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N-2004-abis-20211106-split"
 base="L4N-2004-abis-split"
-L4N="L4N-2004-abis-20211029.ova"
-L4Nmd5="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N/L4N-2004-abis-20211029.ova.md5"
+L4N="L4N-2004-abis-20211106.ova"
+L4Nmd5="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N/L4N-2004-abis-20211106.ova.md5"
 ###########################
 
 echo "チュートリアル用のLin4Neuroをダウンロードします"
@@ -71,8 +72,7 @@ echo "正しく${L4N}が生成されました"
 
 echo ""
 echo "L4Nの準備が完了しました。"
-echo "${L4N%.ova}フォルダの中にある${L4N}をVirtualBoxにインポートしてください"
-echo "10秒後に終了します"
+echo "ダウンロードの${L4N%.ova}フォルダの中にある${L4N}をVirtualBoxにインポートしてください"
 sleep 10
 
 exit
