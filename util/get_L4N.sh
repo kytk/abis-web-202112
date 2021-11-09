@@ -4,28 +4,28 @@
 
 #####
 # 準備のために使ったコマンド
-# openssl md5 L4N-2004-abis-20211108.ova > L4N-2004-abis-20211108.ova.md5
-# split -n 16 -d L4N-2004-abis-20211108.ova L4N-2004-abis-split-
+# openssl md5 L4N-2004-abis-20211110.ova > L4N-2004-abis-20211110.ova.md5
+# split -n 16 -d L4N-2004-abis-20211110.ova L4N-2004-abis-split-
 # for f in L4N-2004-abis-split-*; do openssl md5 $f > ${f}.md5; done
 # sftp user@ftpsite
 # cd psy-neuroimaging
-# mkdir L4N-2004-abis-20211108-split
+# mkdir L4N-2004-abis-20211110-split
 # put L4N-2004-abis-split-*
 # cd ../L4N #(psy-neuroimaging/L4N)
-# put L4N-2004-abis-20211108*
+# put L4N-2004-abis-20211110*
 #####
 
 #set -x
 
 cd ~/Downloads
-mkdir L4N-2004-abis-20211108
-cd L4N-2004-abis-20211108
+mkdir L4N-2004-abis-20211110
+cd L4N-2004-abis-20211110
 
 # variable ################
-baseurl="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N-2004-abis-20211108-split"
+baseurl="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N-2004-abis-20211110-split"
 base="L4N-2004-abis-split"
-L4N="L4N-2004-abis-20211108.ova"
-L4Nmd5="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N/L4N-2004-abis-20211108.ova.md5"
+L4N="L4N-2004-abis-20211110.ova"
+L4Nmd5="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N/L4N-2004-abis-20211110.ova.md5"
 ###########################
 
 echo "チュートリアル用のLin4Neuroをダウンロードします"
