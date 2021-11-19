@@ -418,7 +418,7 @@
 
 - 準備がうまくいかない時のために、問い合わせフォームを準備しています。こちらからご質問ください。数日以内に担当者から返信させていただきます
 
-- [問い合わせフォーム](https://forms.gle/FwuKSwRvp2V16ZgD7){:target="_blank"} 
+- [問い合わせフォーム](https://forms.gle/VekCUtMeQapZuh3e6){:target="_blank"} 
 
 
 ## トラブルシューティング
