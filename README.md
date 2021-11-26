@@ -186,6 +186,9 @@
 
 ### C. Lin4Neuro仮想アプライアンスのインポート (所要時間約15分)
 
+- (Windowsで、ディスプレイが推奨サイズ(150%)だと、「次へ」や「インポート」などの画面下部が隠れてしまうことがあります。
+その際は、Windowsの設定で推奨サイズを100%にしたり、ファイルを指定した後にEnterを押すなどすれば対応できます)
+
 - ダウンロードした仮想アプライアンス (L4N-2004-abis-20211110.ova) を用いて仮想マシンをインポートします
 
 - VirtualBoxのメニューから **ファイル** → **仮想アプライアンスのインポート** を選択します
@@ -208,6 +211,7 @@
     ![仮想アプライアンスのインポート4](img/vb05.png)
 
 ### D. 仮想マシンの設定 (所要時間約5分)
+
 
 #### 1. 共有フォルダの設定
 
@@ -369,6 +373,30 @@
 - この数字が正しく出力された方は、準備がすべて整ったことになります。メールで、講習会のZoomリンクとSlackのリンクが送付されます
     
 - ここまでたどりつけない場合は、事前サポートが必要になります。今回、Zoomのため、チュートリアル当日の個別サポートが提供できませんので、このプロセスは必須とさせていただきます
+
+### Windows 11で認められる現象
+
+- Windows 11では、abis_test.sh でエラーが出ることがわかっています。tensorflowに関係する問題です。
+
+```
+> from tensorflow.keras.utils import to_categorical
+The TensorFlow library was compiled to use AVX instructions, but these aren't available on your machine.
+```
+
+- CPU のある機能 (AVX) が機能していないことが原因です
+
+- この場合には以下を実行してください
+
+    - 管理者権限でコマンドプロンプトを起動
+
+    - 下記コマンドを実行
+
+    ```
+    bcdedit /set hypervisorlaunchtype off
+    ```
+
+    - Windowsを再起動
+
 
 ## Lin4Neuroの終了
 
