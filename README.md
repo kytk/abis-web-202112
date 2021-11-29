@@ -276,7 +276,7 @@
 
 - ログインした後、左下の脳のアイコンをクリックし、 **脳画像解析** をクリックすると、インストールされているソフトウェアを確認できます
 
-    ![画像解析ツール](img/vb11.png)
+    ![画像解析ツール](img/vb112.png)
 
 #### 4. クリップボードの共有設定
 
@@ -374,14 +374,21 @@
     
 - ここまでたどりつけない場合は、事前サポートが必要になります。今回、Zoomのため、チュートリアル当日の個別サポートが提供できませんので、このプロセスは必須とさせていただきます
 
-### Windows 11で認められる現象
+### Windows 11 および Windows 10 21H2 で認められる現象
 
-- Windows 11では、abis_test.sh でエラーが出ることがわかっています。tensorflowに関係する問題です。
+- Windows 11 および一部のWindows 10 では、abis_test.sh でエラーが出ることがわかっています。tensorflowに関係する問題です。
 
 ```
 > from tensorflow.keras.utils import to_categorical
 The TensorFlow library was compiled to use AVX instructions, but these aren't available on your machine.
 ```
+もしくは以下のようなエラーが出ます
+
+```
+./abis_test.sh: 44 行:  2553 中止                  (コアダンプ) python3 ../abis_test.py 2> /dev/null
+
+```
+
 
 - CPU のある機能 (AVX) が機能していないことが原因です
 
@@ -441,6 +448,31 @@ The TensorFlow library was compiled to use AVX instructions, but these aren't av
 ## トラブルシューティング
 
 - これまでに問い合わせをいただいた内容とその対策を紹介します
+
+- 【質問】macOSにVirtualBoxをインストールし、Lin4Neuroをインポートし、実行しようとしたところ、以下のエラーメッセージが出て起動しません。
+
+```
+he virtual machine 'L4N-2004-abis' has terminated unexpectedly during startup with exit code 1 (0x1).
+
+終了コード : NS_ERROR_FAILURE (0x80004005)
+コンポーネント: MachineWrap
+インターフェース: IMachine {85632c68-b5bb-4316-a900-5eb28d3413df}
+
+Kernel driver not installed (rc=-1908)
+
+Make sure the kernel module has been loaded successfully.
+
+where: suplibOsInit what: 3 VERR_VM_DRIVER_NOT_INSTALLED (-1908) - The support driver is not installed. On linux, open returned ENOENT. 
+```
+
+    - 【回答】これは、比較的有名な症状です。rc=-1908 問題と私は勝手に読んでいます。以下を実行してください。https://www.nemotos.net/?p=3707 も参考にしてください。
+        - 一度、VirtualBoxをアンインストールしてください。
+        - macOSを再起動してください。
+        - VirtualBoxをインストールする際に、ダイアログがでる度に、システム環境設定 -> セキュリティを確認してください。
+        - "Oracle" のキーワードを見ながら、都度許可を出してください。
+        - これでインストールできる可能性が高いです。
+
+        - なお、SIPを無効にする方法は最近はうまくいかないです…
 
 
 - 【質問】「D. 仮想マシンの設定 (所要時間約5分)」の作業中、VirtualBoxのメイン画面から設定タブを押すと設定画面の下部に「無効な設定が見つかりました。」と表示され、共有フォルダなどの設定が出来ませんでした。設定をしない状態で起動を押しても、「仮想マシン"L4N-2004-abis"のセッションを開けませんでした。」という警告が出てしまいます。
