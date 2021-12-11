@@ -22,10 +22,10 @@ mkdir L4N-2004-abis-20211110
 cd L4N-2004-abis-20211110
 
 # variable ################
-baseurl="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N-2004-abis-20211110-split"
+baseurl="https://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N-2004-abis-20211110-split"
 base="L4N-2004-abis-split"
 L4N="L4N-2004-abis-20211110.ova"
-L4Nmd5="http://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N/L4N-2004-abis-20211110.ova.md5"
+L4Nmd5="https://www.md.tsukuba.ac.jp/clinical-med/psy-neuroimaging/L4N/L4N-2004-abis-20211110.ova.md5"
 ###########################
 
 echo "チュートリアル用のLin4Neuroをダウンロードします"
